@@ -51,7 +51,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.exitTopRight)).BeginInit();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -74,7 +73,6 @@
             // panelMain
             // 
             this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.panelMain.Controls.Add(this.button1);
             this.panelMain.Controls.Add(this.btnShowSpeakers);
             this.panelMain.Controls.Add(this.progressBar1);
             this.panelMain.Controls.Add(this.btnStop);
@@ -349,15 +347,6 @@
             this.label1.Text = "Speech To Text App";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(635, 199);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // meetingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -402,6 +391,5 @@
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btnShowSpeakers;
-        private System.Windows.Forms.Button button1;
     }
 }
