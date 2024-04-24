@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(meetingForm));
             this.exitTopRight = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.btnShowSpeakers = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnRecord = new System.Windows.Forms.Button();
@@ -50,7 +51,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnShowSpeakers = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.exitTopRight)).BeginInit();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -73,6 +74,7 @@
             // panelMain
             // 
             this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelMain.Controls.Add(this.button1);
             this.panelMain.Controls.Add(this.btnShowSpeakers);
             this.panelMain.Controls.Add(this.progressBar1);
             this.panelMain.Controls.Add(this.btnStop);
@@ -85,6 +87,20 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1128, 721);
             this.panelMain.TabIndex = 2;
+            // 
+            // btnShowSpeakers
+            // 
+            this.btnShowSpeakers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnShowSpeakers.FlatAppearance.BorderSize = 0;
+            this.btnShowSpeakers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnShowSpeakers.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnShowSpeakers.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnShowSpeakers.Location = new System.Drawing.Point(985, 640);
+            this.btnShowSpeakers.Name = "btnShowSpeakers";
+            this.btnShowSpeakers.Size = new System.Drawing.Size(119, 49);
+            this.btnShowSpeakers.TabIndex = 9;
+            this.btnShowSpeakers.Text = "Manage Speakers";
+            this.btnShowSpeakers.UseVisualStyleBackColor = false;
             // 
             // progressBar1
             // 
@@ -333,19 +349,14 @@
             this.label1.Text = "Speech To Text App";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnShowSpeakers
+            // button1
             // 
-            this.btnShowSpeakers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnShowSpeakers.FlatAppearance.BorderSize = 0;
-            this.btnShowSpeakers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnShowSpeakers.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnShowSpeakers.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnShowSpeakers.Location = new System.Drawing.Point(985, 640);
-            this.btnShowSpeakers.Name = "btnShowSpeakers";
-            this.btnShowSpeakers.Size = new System.Drawing.Size(119, 49);
-            this.btnShowSpeakers.TabIndex = 9;
-            this.btnShowSpeakers.Text = "Manage Speakers";
-            this.btnShowSpeakers.UseVisualStyleBackColor = false;
+            this.button1.Location = new System.Drawing.Point(635, 199);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // meetingForm
             // 
@@ -391,5 +402,6 @@
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btnShowSpeakers;
+        private System.Windows.Forms.Button button1;
     }
 }
