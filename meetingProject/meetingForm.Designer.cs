@@ -51,6 +51,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.label2 = new System.Windows.Forms.Label();
+            this.browseFolder = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.exitTopRight)).BeginInit();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -73,6 +77,9 @@
             // panelMain
             // 
             this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelMain.Controls.Add(this.textBox1);
+            this.panelMain.Controls.Add(this.browseFolder);
+            this.panelMain.Controls.Add(this.label2);
             this.panelMain.Controls.Add(this.btnShowSpeakers);
             this.panelMain.Controls.Add(this.progressBar1);
             this.panelMain.Controls.Add(this.btnStop);
@@ -115,7 +122,7 @@
             this.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStop.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnStop.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnStop.Location = new System.Drawing.Point(436, 478);
+            this.btnStop.Location = new System.Drawing.Point(388, 545);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(119, 49);
             this.btnStop.TabIndex = 7;
@@ -130,7 +137,7 @@
             this.btnRecord.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRecord.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnRecord.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRecord.Location = new System.Drawing.Point(298, 478);
+            this.btnRecord.Location = new System.Drawing.Point(263, 545);
             this.btnRecord.Name = "btnRecord";
             this.btnRecord.Size = new System.Drawing.Size(119, 49);
             this.btnRecord.TabIndex = 6;
@@ -347,6 +354,39 @@
             this.label1.Text = "Speech To Text App";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(271, 468);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(149, 23);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Select Output Folder : ";
+            // 
+            // browseFolder
+            // 
+            this.browseFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.browseFolder.FlatAppearance.BorderSize = 0;
+            this.browseFolder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.browseFolder.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.browseFolder.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.browseFolder.Location = new System.Drawing.Point(417, 465);
+            this.browseFolder.Name = "browseFolder";
+            this.browseFolder.Size = new System.Drawing.Size(70, 31);
+            this.browseFolder.TabIndex = 11;
+            this.browseFolder.Text = "Stop";
+            this.browseFolder.UseVisualStyleBackColor = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(263, 509);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(244, 20);
+            this.textBox1.TabIndex = 12;
+            // 
             // meetingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,8 +396,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "meetingForm";
             this.Text = "meetingForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.meetingForm_FormClosing_1);
             ((System.ComponentModel.ISupportInitialize)(this.exitTopRight)).EndInit();
             this.panelMain.ResumeLayout(false);
+            this.panelMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelNavBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -391,5 +433,9 @@
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btnShowSpeakers;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button browseFolder;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }

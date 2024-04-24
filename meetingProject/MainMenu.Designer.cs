@@ -244,8 +244,8 @@
             // 
             // panelMain
             // 
-            this.panelMain.Controls.Add(this.panelNavBar);
             this.panelMain.Controls.Add(this.panel6);
+            this.panelMain.Controls.Add(this.panelNavBar);
             this.panelMain.Controls.Add(this.pictureBox2);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
@@ -256,8 +256,8 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.panel6.Controls.Add(this.exitTopRight);
             this.panel6.Controls.Add(this.label1);
+            this.panel6.Controls.Add(this.exitTopRight);
             this.panel6.Location = new System.Drawing.Point(250, -1);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(879, 43);

@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using NAudio.Wave;
 using System.IO;
 using System.Diagnostics;
+using System.Dynamic;
 #endregion
 
 namespace meetingProject
@@ -117,7 +118,7 @@ namespace meetingProject
             #endregion
 
             #region SOUND
-            var outputFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
+            var outputFolder = AppDomain.CurrentDomain.BaseDirectory;
             Directory.CreateDirectory(outputFolder);
             outputSoundPath = Path.Combine(outputFolder, "recorded.wav");
 
@@ -146,7 +147,6 @@ namespace meetingProject
             waveIn.StopRecording();
             #endregion
 
-
         }
         #endregion
 
@@ -172,7 +172,7 @@ namespace meetingProject
                 waveIn.Dispose();
             }
         }
-        private void YourForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void meetingForm_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             closing = true;
             waveIn?.StopRecording();
@@ -210,7 +210,9 @@ namespace meetingProject
             Environment.Exit(0);
         }
 
+
         #endregion
 
+       
     }
 }

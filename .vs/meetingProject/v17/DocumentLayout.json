@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|c:\\users\\emir\\desktop\\gitkraken\\meetingproject\\meetingproject\\meetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingproject\\meetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|solutionrelative:meetingproject\\meetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|c:\\users\\emir\\desktop\\gitkraken\\meetingproject\\meetingproject\\meetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|c:\\users\\emir\\desktop\\gitkraken\\meetingproject\\meetingproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|solutionrelative:meetingproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingproject\\meetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|solutionrelative:meetingproject\\meetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,17 +22,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingProject\\Program.cs",
+              "RelativeDocumentMoniker": "meetingProject\\Program.cs",
+              "ToolTip": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingProject\\Program.cs",
+              "RelativeToolTip": "meetingProject\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T21:18:44.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "meetingForm.cs",
               "DocumentMoniker": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingProject\\meetingForm.cs",
               "RelativeDocumentMoniker": "meetingProject\\meetingForm.cs",
               "ToolTip": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingProject\\meetingForm.cs",
               "RelativeToolTip": "meetingProject\\meetingForm.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAANgAAAAAAAAA",
+              "ViewState": "AQIAABYAAAAAAAAAAAAQwHgAAABFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-24T20:50:29.262Z",
               "EditorCaption": ""
