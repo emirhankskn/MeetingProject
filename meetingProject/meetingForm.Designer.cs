@@ -31,10 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(meetingForm));
             this.exitTopRight = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.btnShowSpeakers = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.lblErrorSelectFolder = new System.Windows.Forms.Label();
+            this.txtOutputFolder = new System.Windows.Forms.TextBox();
+            this.browseFolder = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnRecord = new System.Windows.Forms.Button();
+            this.btnShowSpeakers = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panelNavBar = new System.Windows.Forms.Panel();
             this.btnMeetingAnalysis = new System.Windows.Forms.Button();
@@ -50,17 +54,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnSettings = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.label2 = new System.Windows.Forms.Label();
-            this.browseFolder = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.exitTopRight)).BeginInit();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelNavBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
             this.SuspendLayout();
             // 
             // exitTopRight
@@ -77,13 +80,14 @@
             // panelMain
             // 
             this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.panelMain.Controls.Add(this.textBox1);
+            this.panelMain.Controls.Add(this.lblErrorSelectFolder);
+            this.panelMain.Controls.Add(this.txtOutputFolder);
             this.panelMain.Controls.Add(this.browseFolder);
             this.panelMain.Controls.Add(this.label2);
-            this.panelMain.Controls.Add(this.btnShowSpeakers);
-            this.panelMain.Controls.Add(this.progressBar1);
             this.panelMain.Controls.Add(this.btnStop);
             this.panelMain.Controls.Add(this.btnRecord);
+            this.panelMain.Controls.Add(this.btnShowSpeakers);
+            this.panelMain.Controls.Add(this.progressBar1);
             this.panelMain.Controls.Add(this.dataGridView1);
             this.panelMain.Controls.Add(this.panelNavBar);
             this.panelMain.Controls.Add(this.panel6);
@@ -92,6 +96,82 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1128, 721);
             this.panelMain.TabIndex = 2;
+            // 
+            // lblErrorSelectFolder
+            // 
+            this.lblErrorSelectFolder.AutoSize = true;
+            this.lblErrorSelectFolder.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblErrorSelectFolder.ForeColor = System.Drawing.Color.Brown;
+            this.lblErrorSelectFolder.Location = new System.Drawing.Point(312, 623);
+            this.lblErrorSelectFolder.Name = "lblErrorSelectFolder";
+            this.lblErrorSelectFolder.Size = new System.Drawing.Size(182, 19);
+            this.lblErrorSelectFolder.TabIndex = 13;
+            this.lblErrorSelectFolder.Text = "Please select output folder first !";
+            this.lblErrorSelectFolder.Visible = false;
+            // 
+            // txtOutputFolder
+            // 
+            this.txtOutputFolder.Location = new System.Drawing.Point(280, 532);
+            this.txtOutputFolder.Name = "txtOutputFolder";
+            this.txtOutputFolder.ReadOnly = true;
+            this.txtOutputFolder.Size = new System.Drawing.Size(244, 20);
+            this.txtOutputFolder.TabIndex = 12;
+            // 
+            // browseFolder
+            // 
+            this.browseFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.browseFolder.FlatAppearance.BorderSize = 0;
+            this.browseFolder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.browseFolder.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.browseFolder.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.browseFolder.Location = new System.Drawing.Point(434, 483);
+            this.browseFolder.Name = "browseFolder";
+            this.browseFolder.Size = new System.Drawing.Size(70, 31);
+            this.browseFolder.TabIndex = 11;
+            this.browseFolder.Text = "Browse";
+            this.browseFolder.UseVisualStyleBackColor = false;
+            this.browseFolder.Click += new System.EventHandler(this.browseFolder_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(288, 486);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(149, 23);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Select Output Folder : ";
+            // 
+            // btnStop
+            // 
+            this.btnStop.BackColor = System.Drawing.Color.Maroon;
+            this.btnStop.FlatAppearance.BorderSize = 0;
+            this.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnStop.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnStop.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnStop.Location = new System.Drawing.Point(405, 571);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(119, 49);
+            this.btnStop.TabIndex = 7;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = false;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // btnRecord
+            // 
+            this.btnRecord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnRecord.FlatAppearance.BorderSize = 0;
+            this.btnRecord.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRecord.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnRecord.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRecord.Location = new System.Drawing.Point(280, 571);
+            this.btnRecord.Name = "btnRecord";
+            this.btnRecord.Size = new System.Drawing.Size(119, 49);
+            this.btnRecord.TabIndex = 6;
+            this.btnRecord.Text = "Record";
+            this.btnRecord.UseVisualStyleBackColor = false;
+            this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
             // 
             // btnShowSpeakers
             // 
@@ -114,36 +194,6 @@
             this.progressBar1.Size = new System.Drawing.Size(879, 10);
             this.progressBar1.TabIndex = 8;
             this.progressBar1.Visible = false;
-            // 
-            // btnStop
-            // 
-            this.btnStop.BackColor = System.Drawing.Color.Maroon;
-            this.btnStop.FlatAppearance.BorderSize = 0;
-            this.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnStop.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnStop.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnStop.Location = new System.Drawing.Point(388, 545);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(119, 49);
-            this.btnStop.TabIndex = 7;
-            this.btnStop.Text = "Stop";
-            this.btnStop.UseVisualStyleBackColor = false;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
-            // btnRecord
-            // 
-            this.btnRecord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnRecord.FlatAppearance.BorderSize = 0;
-            this.btnRecord.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRecord.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnRecord.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRecord.Location = new System.Drawing.Point(263, 545);
-            this.btnRecord.Name = "btnRecord";
-            this.btnRecord.Size = new System.Drawing.Size(119, 49);
-            this.btnRecord.TabIndex = 6;
-            this.btnRecord.Text = "Record";
-            this.btnRecord.UseVisualStyleBackColor = false;
-            this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
             // 
             // dataGridView1
             // 
@@ -331,6 +381,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panel6.Controls.Add(this.btnSettings);
             this.panel6.Controls.Add(this.exitTopRight);
             this.panel6.Controls.Add(this.label1);
             this.panel6.Location = new System.Drawing.Point(250, -1);
@@ -340,6 +391,17 @@
             this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             this.panel6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
             this.panel6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mouseUp);
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
+            this.btnSettings.Location = new System.Drawing.Point(794, 2);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(38, 38);
+            this.btnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnSettings.TabIndex = 4;
+            this.btnSettings.TabStop = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // label1
             // 
@@ -354,39 +416,6 @@
             this.label1.Text = "Speech To Text App";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(271, 468);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 23);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Select Output Folder : ";
-            // 
-            // browseFolder
-            // 
-            this.browseFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.browseFolder.FlatAppearance.BorderSize = 0;
-            this.browseFolder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.browseFolder.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.browseFolder.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.browseFolder.Location = new System.Drawing.Point(417, 465);
-            this.browseFolder.Name = "browseFolder";
-            this.browseFolder.Size = new System.Drawing.Size(70, 31);
-            this.browseFolder.TabIndex = 11;
-            this.browseFolder.Text = "Stop";
-            this.browseFolder.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(263, 509);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(244, 20);
-            this.textBox1.TabIndex = 12;
-            // 
             // meetingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,6 +426,7 @@
             this.Name = "meetingForm";
             this.Text = "meetingForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.meetingForm_FormClosing_1);
+            this.Load += new System.EventHandler(this.meetingForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.exitTopRight)).EndInit();
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
@@ -405,6 +435,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -433,9 +464,11 @@
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btnShowSpeakers;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtOutputFolder;
         private System.Windows.Forms.Button browseFolder;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Label lblErrorSelectFolder;
+        private System.Windows.Forms.PictureBox btnSettings;
     }
 }

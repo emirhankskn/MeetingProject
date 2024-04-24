@@ -48,3 +48,4 @@ C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\AForge.x
 C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\AForge.Video.xml
 C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.meetingForm.resources
 C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.Form1.resources
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.settingsForm.resources

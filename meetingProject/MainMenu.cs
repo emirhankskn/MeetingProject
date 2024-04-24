@@ -75,6 +75,14 @@ namespace meetingProject
         }
         #endregion
 
+        #region SETTINGS BUTTON
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            settingsForm f = new settingsForm();
+            f.Show();
+        }
+        #endregion
+
         #region EXIT
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -85,8 +93,8 @@ namespace meetingProject
             Environment.Exit(0);
         }
 
+
         #endregion
 
-        
     }
 }

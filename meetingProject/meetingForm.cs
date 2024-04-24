@@ -27,6 +27,7 @@ namespace meetingProject
         private WaveFileWriter writer;
         private string outputSoundPath;
         private bool closing = false;
+        DateTime date;
         #endregion
 
         #region FORM CONSTRUCTOR
@@ -40,6 +41,14 @@ namespace meetingProject
             btnOldRecords.Click += NavbarButton_Click;
             btnMeetingAnalysis.Click += NavbarButton_Click;
             #endregion
+        }
+        #endregion
+
+        #region FORM LOAD
+        private void meetingForm_Load(object sender, EventArgs e)
+        {
+            btnRecord.Enabled = true;
+            btnStop.Enabled = false;
         }
         #endregion
 
@@ -109,29 +118,47 @@ namespace meetingProject
         }
         #endregion
 
+        #region BROWSE FOLDER
+        private void browseFolder_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog diag = new FolderBrowserDialog();
+            if (diag.ShowDialog() == System.Windows.Forms.DialogResult.OK) txtOutputFolder.Text = diag.SelectedPath;
+            else txtOutputFolder.Text = "";
+        }
+        #endregion
+
         #region RECORD FUNCTION
         private void btnRecord_Click(object sender, EventArgs e)
         {
-            #region VIDEO
-            btnRecord.Enabled = false;
-            rec = new Recorder(new RecorderParams("out.avi", @"C:\Users\Emir\Desktop", 10, SharpAvi.KnownFourCCs.Codecs.MotionJpeg, 70));
-            #endregion
+            if (txtOutputFolder.Text.Length == 0) lblErrorSelectFolder.Visible = true;
+            else
+            {
+                lblErrorSelectFolder.Visible = false;
+                date = DateTime.Now;
+                
+                #region VIDEO
+                btnRecord.Enabled = false;
+                rec = new Recorder(new RecorderParams(date.ToString("d_MMM_yy_HH-mm")+".avi",
+                                   txtOutputFolder.Text, 10,
+                                   SharpAvi.KnownFourCCs.Codecs.MotionJpeg, 100));
+                #endregion
 
-            #region SOUND
-            var outputFolder = AppDomain.CurrentDomain.BaseDirectory;
-            Directory.CreateDirectory(outputFolder);
-            outputSoundPath = Path.Combine(outputFolder, "recorded.wav");
+                #region SOUND
+                var outputFolder = txtOutputFolder.Text;
+                Directory.CreateDirectory(outputFolder);
+                outputSoundPath = Path.Combine(outputFolder, "recorded.wav");
 
-            waveIn = new WaveInEvent();
-            waveIn.DataAvailable += WaveIn_DataAvailable;
-            waveIn.RecordingStopped += WaveIn_RecordingStopped;
+                waveIn = new WaveInEvent();
+                waveIn.DataAvailable += WaveIn_DataAvailable;
+                waveIn.RecordingStopped += WaveIn_RecordingStopped;
 
-            writer = new WaveFileWriter(outputSoundPath, waveIn.WaveFormat);
-            waveIn.StartRecording();
+                writer = new WaveFileWriter(outputSoundPath, waveIn.WaveFormat);
+                waveIn.StartRecording();
 
-            btnRecord.Enabled = false;
-            btnStop.Enabled = true;
-            #endregion
+                btnRecord.Enabled = false;
+                btnStop.Enabled = true;
+                #endregion
+            }
         }
         #endregion
 
@@ -146,6 +173,8 @@ namespace meetingProject
             #region SOUND
             waveIn.StopRecording();
             #endregion
+
+            txtOutputFolder.Clear();
 
         }
         #endregion
@@ -200,6 +229,14 @@ namespace meetingProject
         //}
         #endregion
 
+        #region SETTINGS BUTTON
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            settingsForm f = new settingsForm();
+            f.Show();
+        }
+        #endregion
+
         #region EXIT BUTTONS
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -209,10 +246,6 @@ namespace meetingProject
         {
             Environment.Exit(0);
         }
-
-
         #endregion
-
-       
     }
 }
