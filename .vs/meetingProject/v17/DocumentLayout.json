@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|c:\\users\\emir\\desktop\\gitkraken\\meetingproject\\meetingproject\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|solutionrelative:meetingproject\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|c:\\users\\emir\\desktop\\gitkraken\\meetingproject\\meetingproject\\meetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|solutionrelative:meetingproject\\meetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
@@ -19,6 +23,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Login.cs [Tasar\u0131m]",
+              "DocumentMoniker": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingProject\\Login.cs",
+              "RelativeDocumentMoniker": "meetingProject\\Login.cs",
+              "ToolTip": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingProject\\Login.cs [Tasar\u0131m]",
+              "RelativeToolTip": "meetingProject\\Login.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T20:41:20.264Z",
+              "EditorCaption": " [Tasar\u0131m]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "meetingForm.cs [Tasar\u0131m]",
               "DocumentMoniker": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingProject\\meetingForm.cs",
               "RelativeDocumentMoniker": "meetingProject\\meetingForm.cs",
