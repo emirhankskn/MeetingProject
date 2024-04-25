@@ -10,27 +10,36 @@ using SharpAvi;
 using SharpAvi.Codecs;
 using SharpAvi.Output;
 using System.Windows.Forms;
+using NAudio.Wave;
+using System.IO;
+using System.Diagnostics;
+
+
 
 namespace meetingProject
 {
     public partial class meetingForm : Form
     {
+
+
+        private Recorder rec;
+        private WaveInEvent waveIn;
+        private WaveFileWriter writer;
+        private string outputSoundPath;
+        private bool closing = false;
+
         public meetingForm()
         {
             InitializeComponent();
+            #region TO MAKE NAVBAR BUTTONS DO THE SAME THING ON CLICK EVENT
             btnMeeting.Click += NavbarButton_Click;
             btnTranslateFile.Click += NavbarButton_Click;
             btnSpeechToText.Click += NavbarButton_Click;
             btnOldRecords.Click += NavbarButton_Click;
             btnMeetingAnalysis.Click += NavbarButton_Click;
+            #endregion
         }
 
-        private void BackButton()
-        {
-            Button backbutton = new Button();
-            backbutton.Location = new Point(298, 678);
-        }
-        
         #region NAVBAR
         private void NavbarButton_Click(object sender, EventArgs e)
         {
@@ -97,7 +106,99 @@ namespace meetingProject
         }
         #endregion
 
-        #region EXIT
+        #region RECORD FUNCTION
+        private void btnRecord_Click(object sender, EventArgs e)
+        {
+            #region VIDEO
+            btnRecord.Enabled = false;
+            rec = new Recorder(new RecorderParams("out.avi", @"C:\Users\Emir\Desktop", 10, SharpAvi.KnownFourCCs.Codecs.MotionJpeg, 70));
+            #endregion
+
+            #region SOUND
+            var outputFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
+            Directory.CreateDirectory(outputFolder);
+            outputSoundPath = Path.Combine(outputFolder, "recorded.wav");
+
+            waveIn = new WaveInEvent();
+            waveIn.DataAvailable += WaveIn_DataAvailable;
+            waveIn.RecordingStopped += WaveIn_RecordingStopped;
+
+            writer = new WaveFileWriter(outputSoundPath, waveIn.WaveFormat);
+            waveIn.StartRecording();
+
+            btnRecord.Enabled = false;
+            btnStop.Enabled = true;
+            #endregion
+        }
+        #endregion
+
+        #region STOP RECORD FUNCTION
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            #region VIDEO
+            rec.Dispose();
+            #endregion
+
+
+            #region SOUND
+            waveIn.StopRecording();
+            #endregion
+
+
+        }
+        #endregion
+
+        #region SOUND RECORDER FUNCTIONS
+        private void WaveIn_DataAvailable(object sender, WaveInEventArgs e)
+        {
+            writer.Write(e.Buffer, 0, e.BytesRecorded);
+
+            if (writer.Position > waveIn.WaveFormat.AverageBytesPerSecond * 30)
+            {
+                waveIn.StopRecording();
+            }
+        }
+        private void WaveIn_RecordingStopped(object sender, StoppedEventArgs e)
+        {
+            writer?.Dispose();
+            writer = null;
+            btnRecord.Enabled = true;
+            btnStop.Enabled = false;
+
+            if (closing)
+            {
+                waveIn.Dispose();
+            }
+        }
+        private void YourForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            closing = true;
+            waveIn?.StopRecording();
+        }
+        #endregion
+
+        #region SOUND AND VIDEO RECORD MERGE FUNCTION
+        //public static void MergeVideoAndAudio(string videoFilePath, string audioFilePath, string outputFilePath)
+        //{
+        //    string arguments = $"-i \"{videoFilePath}\" -i \"{audioFilePath}\" -c:v copy -c:a aac -strict experimental \"{outputFilePath}\"";
+
+        //    ProcessStartInfo startInfo = new ProcessStartInfo
+        //    {
+        //        FileName = @"C:\PATH_Programs\ffmpeg.exe", 
+        //        Arguments = arguments,
+        //        UseShellExecute = false,
+        //        RedirectStandardOutput = true,
+        //        CreateNoWindow = true
+        //    };
+
+        //    using (Process process = Process.Start(startInfo))
+        //    {
+        //        process.WaitForExit();
+        //    }
+        //}
+        #endregion
+
+        #region EXIT BUTTONS
         private void btnExit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
@@ -109,16 +210,5 @@ namespace meetingProject
 
         #endregion
 
-        private void btnRecord_Click(object sender, EventArgs e)
-        {
-            btnRecord.Enabled = false;
-            var rec = new Recorder(new RecorderParams("out.avi", 10, SharpAvi.KnownFourCCs.Codecs.MotionJpeg, 70));
-
-        }
-
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

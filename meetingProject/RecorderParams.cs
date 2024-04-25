@@ -11,14 +11,16 @@ using System.Drawing.Imaging;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.IO;
 
 namespace meetingProject
 {
-    class RecorderParams
+    public class RecorderParams
     {
-        public RecorderParams(string filename, int FrameRate, FourCC Encoder, int Quality)
+        public RecorderParams(string filename, string filepath, int FrameRate, FourCC Encoder, int Quality)
         {
             FileName = filename;
+            FilePath = filepath;
             FramesPerSecond = FrameRate;
             Codec = Encoder;
             this.Quality = Quality;
@@ -27,7 +29,7 @@ namespace meetingProject
             Width = Screen.PrimaryScreen.Bounds.Width;
         }
 
-        string FileName;
+        string FileName, FilePath;
         public int FramesPerSecond, Quality;
         FourCC Codec;
 
@@ -36,7 +38,7 @@ namespace meetingProject
 
         public AviWriter CreateAviWriter()
         {
-            return new AviWriter(FileName)
+            return new AviWriter(Path.Combine(FilePath, FileName))
             {
                 FramesPerSecond = FramesPerSecond,
                 EmitIndex1 = true,
@@ -45,7 +47,6 @@ namespace meetingProject
 
         public IAviVideoStream CreateVideoStream(AviWriter writer)
         {
-            // Select encoder type based on FOURCC of codec
             if (Codec == KnownFourCCs.Codecs.Uncompressed)
                 return writer.AddUncompressedVideoStream(Width, Height);
             else if (Codec == KnownFourCCs.Codecs.MotionJpeg)
@@ -53,12 +54,8 @@ namespace meetingProject
             else
             {
                 return writer.AddMpeg4VideoStream(Width, Height, (double)writer.FramesPerSecond,
-                    // It seems that all tested MPEG-4 VfW codecs ignore the quality affecting parameters passed through VfW API
-                    // They only respect the settings from their own configuration dialogs, and Mpeg4VideoEncoder currently has no support for this
                     quality: Quality,
                     codec: Codec,
-                    // Most of VfW codecs expect single-threaded use, so we wrap this encoder to special wrapper
-                    // Thus all calls to the encoder (including its instantiation) will be invoked on a single thread although encoding (and writing) is performed asynchronously
                     forceSingleThreadedAccess: true);
             }
         }
@@ -77,13 +74,9 @@ namespace meetingProject
         {
             this.Params = Params;
 
-            // Create AVI writer and specify FPS
             writer = Params.CreateAviWriter();
 
-            // Create video stream
             videoStream = Params.CreateVideoStream(writer);
-            // Set only name. Other properties were when creating stream, 
-            // either explicitly by arguments or implicitly by the encoder used
             videoStream.Name = "Captura";
 
             screenThread = new Thread(RecordScreen)
@@ -100,7 +93,6 @@ namespace meetingProject
             stopThread.Set();
             screenThread.Join();
 
-            // Close writer: the remaining data is written to a file and file is closed
             writer.Close();
 
             stopThread.Dispose();
@@ -119,10 +111,8 @@ namespace meetingProject
 
                 Screenshot(buffer);
 
-                // Wait for the previous frame is written
                 videoWriteTask?.Wait();
 
-                // Start asynchronous (encoding and) writing of the new frame
                 videoWriteTask = videoStream.WriteFrameAsync(true, buffer, 0, buffer.Length);
 
                 timeTillNextFrame = timestamp + frameInterval - DateTime.Now;
@@ -130,7 +120,6 @@ namespace meetingProject
                     timeTillNextFrame = TimeSpan.Zero;
             }
 
-            // Wait for the last frame is written
             videoWriteTask?.Wait();
         }
 

@@ -9,3 +9,42 @@ C:\Users\Emir\Desktop\Desktop\Okul\2.DÖNEM DERS NOTLARI\Görsel Programlama\mee
 C:\Users\Emir\Desktop\Desktop\Okul\2.DÖNEM DERS NOTLARI\Görsel Programlama\meetingProject\meetingProject\obj\Debug\meetingProject.pdb
 C:\Users\Emir\Desktop\Desktop\Okul\2.DÖNEM DERS NOTLARI\Görsel Programlama\meetingProject\meetingProject\obj\Debug\meetingProject.MainMenu.resources
 C:\Users\Emir\Desktop\Desktop\Okul\2.DÖNEM DERS NOTLARI\Görsel Programlama\meetingProject\meetingProject\obj\Debug\meetingProject.meetingForm.resources
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.csproj.AssemblyReference.cache
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.MainMenu.resources
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.Properties.Resources.resources
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.csproj.GenerateResource.cache
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.csproj.CoreCompileInputs.cache
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.exe
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.pdb
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\meetingProject.exe.config
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\meetingProject.exe
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\meetingProject.pdb
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\Microsoft.Win32.Registry.dll
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\NAudio.Asio.dll
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\NAudio.Core.dll
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\NAudio.dll
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\NAudio.Midi.dll
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\NAudio.Wasapi.dll
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\NAudio.WinForms.dll
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\NAudio.WinMM.dll
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\SharpAvi.dll
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\Microsoft.Win32.Registry.xml
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\NAudio.xml
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\NAudio.Asio.xml
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\NAudio.Core.xml
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\NAudio.Midi.xml
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\NAudio.Wasapi.xml
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\NAudio.WinForms.xml
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\NAudio.WinMM.xml
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\SharpAvi.xml
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\System.Security.AccessControl.xml
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingP.E1091A71.Up2Date
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\AForge.dll
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\AForge.Video.dll
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\AForge.xml
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\AForge.Video.xml
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.meetingForm.resources
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.Form1.resources
