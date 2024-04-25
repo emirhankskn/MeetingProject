@@ -1,4 +1,5 @@
-﻿using System;
+﻿#region LIBRARIES
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,21 +14,21 @@ using System.Windows.Forms;
 using NAudio.Wave;
 using System.IO;
 using System.Diagnostics;
-
-
+#endregion
 
 namespace meetingProject
 {
     public partial class meetingForm : Form
     {
-
-
+        #region VARIABLES FOR ALL FUNCTIONS
         private Recorder rec;
         private WaveInEvent waveIn;
         private WaveFileWriter writer;
         private string outputSoundPath;
         private bool closing = false;
+        #endregion
 
+        #region FORM CONSTRUCTOR
         public meetingForm()
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace meetingProject
             btnMeetingAnalysis.Click += NavbarButton_Click;
             #endregion
         }
+        #endregion
 
         #region NAVBAR
         private void NavbarButton_Click(object sender, EventArgs e)
