@@ -35,7 +35,7 @@ def meetingRecord(file_url, prefix, speaker_labels=True, language = 'en', output
     print("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*")
     print("Speakers: ")
     print(speakers)
-    for i in speakers: print(speakers[i])
+    input("Press enter to exit...")
     return maintext
 
 try:
@@ -43,4 +43,4 @@ try:
         data = json.load(json_file)
         meetingRecord(prefix = data['prefix'], file_url = data['file_url'], 
                         language = data['language'], output_file = data['output_file'])
-except FileNotFoundError: print("Configuration file 'parameters.json' missing or damaged.")
+except FileNotFoundError: print("Configuration file 'parameters.json' missing, damaged or you give wrong parameters.")

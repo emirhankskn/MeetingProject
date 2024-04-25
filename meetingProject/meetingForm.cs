@@ -142,7 +142,7 @@ namespace meetingProject
                 btnRecord.Enabled = false;
                 rec = new Recorder(new RecorderParams(date.ToString("d_MMM_yy_HH-mm")+".avi",
                                    txtOutputFolder.Text, 10,
-                                   SharpAvi.KnownFourCCs.Codecs.MotionJpeg, 100));
+                                   SharpAvi.KnownFourCCs.Codecs.MotionJpeg, 30));
                 #endregion
 
                 #region SOUND
@@ -176,13 +176,13 @@ namespace meetingProject
             waveIn.StopRecording();
             #endregion
 
-            txtOutputFolder.Clear();
 
             #region PYTHON ENTEGRATION
-
             string jsonFilePath = Environment.CurrentDirectory+@"\parameters.json";
             string jsonContent = File.ReadAllText(jsonFilePath);
             JObject jsonObj = JObject.Parse(jsonContent);
+            jsonObj["output_file"] = Path.Combine(txtOutputFolder.Text, "transcript.txt");
+            jsonObj["file_url"] = txtOutputFolder.Text + @"\recorded.wav";
 
             File.WriteAllText(jsonFilePath, jsonObj.ToString());
 
@@ -196,12 +196,10 @@ namespace meetingProject
 
                 Process.Start(startInfo);
             }
-            else
-            {
-                MessageBox.Show("Python is not exists on your computer !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
+            else MessageBox.Show("Python is not exists on your computer !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             #endregion
+
+            txtOutputFolder.Clear();
 
         }
         #endregion
@@ -223,11 +221,6 @@ namespace meetingProject
         private void WaveIn_DataAvailable(object sender, WaveInEventArgs e)
         {
             writer.Write(e.Buffer, 0, e.BytesRecorded);
-
-            if (writer.Position > waveIn.WaveFormat.AverageBytesPerSecond * 30)
-            {
-                waveIn.StopRecording();
-            }
         }
         private void WaveIn_RecordingStopped(object sender, StoppedEventArgs e)
         {
@@ -244,7 +237,7 @@ namespace meetingProject
         private void meetingForm_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             closing = true;
-            waveIn?.StopRecording();
+            waveIn.StopRecording();
         }
         #endregion
 
