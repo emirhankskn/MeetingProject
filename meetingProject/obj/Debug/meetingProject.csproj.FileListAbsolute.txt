@@ -91,3 +91,7 @@ C:\Users\halit\OneDrive\Masaüstü\GitProje\MeetingProject\meetingProject\obj\De
 C:\Users\halit\OneDrive\Masaüstü\GitProje\MeetingProject\meetingProject\obj\Debug\meetingProject.exe
 C:\Users\halit\OneDrive\Masaüstü\GitProje\MeetingProject\meetingProject\obj\Debug\meetingProject.pdb
 C:\Users\halit\OneDrive\Masaüstü\GitProje\MeetingProject\meetingProject\obj\Debug\meetingProject.Anim.resources
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.Anim.resources
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.Login.resources
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\Newtonsoft.Json.xml

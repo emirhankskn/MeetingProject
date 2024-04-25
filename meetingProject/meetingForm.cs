@@ -15,6 +15,8 @@ using NAudio.Wave;
 using System.IO;
 using System.Diagnostics;
 using System.Dynamic;
+using System.Xml.Linq;
+using Newtonsoft.Json.Linq;
 #endregion
 
 namespace meetingProject
@@ -176,6 +178,44 @@ namespace meetingProject
 
             txtOutputFolder.Clear();
 
+            #region PYTHON ENTEGRATION
+
+            string jsonFilePath = Environment.CurrentDirectory+@"\parameters.json";
+            string jsonContent = File.ReadAllText(jsonFilePath);
+            JObject jsonObj = JObject.Parse(jsonContent);
+
+            File.WriteAllText(jsonFilePath, jsonObj.ToString());
+
+            string pythonExePath = FindPythonExecutable();
+
+            if (pythonExePath != null)
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.FileName = pythonExePath;
+                startInfo.Arguments = Environment.CurrentDirectory + @"\rl.py";
+
+                Process.Start(startInfo);
+            }
+            else
+            {
+                MessageBox.Show("Python is not exists on your computer !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            #endregion
+
+        }
+        #endregion
+
+        #region FIND PYTHON FUNCTION
+        static string FindPythonExecutable()
+        {
+            string[] pythonPaths = Environment.GetEnvironmentVariable("PATH").Split(Path.PathSeparator);
+            foreach (string path in pythonPaths)
+            {
+                string pythonExePath = Path.Combine(path, "python.exe");
+                if (File.Exists(pythonExePath)) return pythonExePath;
+            }
+            return null;
         }
         #endregion
 
@@ -247,5 +287,7 @@ namespace meetingProject
             Environment.Exit(0);
         }
         #endregion
+
+        
     }
 }

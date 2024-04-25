@@ -111,10 +111,11 @@
             // 
             // txtOutputFolder
             // 
+            this.txtOutputFolder.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtOutputFolder.Location = new System.Drawing.Point(280, 532);
             this.txtOutputFolder.Name = "txtOutputFolder";
             this.txtOutputFolder.ReadOnly = true;
-            this.txtOutputFolder.Size = new System.Drawing.Size(244, 20);
+            this.txtOutputFolder.Size = new System.Drawing.Size(244, 23);
             this.txtOutputFolder.TabIndex = 12;
             // 
             // browseFolder

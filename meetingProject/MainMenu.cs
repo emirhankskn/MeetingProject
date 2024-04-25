@@ -23,8 +23,8 @@ namespace meetingProject
             btnSpeechToText.Click += NavbarButton_Click;
             btnOldRecords.Click += NavbarButton_Click;
             btnMeetingAnalysis.Click += NavbarButton_Click;
-            normalResim = Image.FromFile(@"C:\Users\halit\OneDrive\Masaüstü\2223249.png"); // Normal boyutlu resim
-            buyutulmusResim = Image.FromFile(@"C:\Users\halit\OneDrive\Masaüstü\278-2789620_free-user-icons-account-icon-flat.jpg"); // Tam ekran modunda gösterilecek resim
+            //normalResim = Image.FromFile(@"C:\Users\halit\OneDrive\Masaüstü\2223249.png"); // Normal boyutlu resim
+            //buyutulmusResim = Image.FromFile(@"C:\Users\halit\OneDrive\Masaüstü\278-2789620_free-user-icons-account-icon-flat.jpg"); // Tam ekran modunda gösterilecek resim
 
         }
 
