@@ -12,6 +12,9 @@ namespace meetingProject
 {
     public partial class MainMenu : Form
     {
+        private Image normalResim;
+        private Image buyutulmusResim;
+        private bool tamEkranModu = false;
         public MainMenu()
         {
             InitializeComponent();
@@ -20,6 +23,9 @@ namespace meetingProject
             btnSpeechToText.Click += NavbarButton_Click;
             btnOldRecords.Click += NavbarButton_Click;
             btnMeetingAnalysis.Click += NavbarButton_Click;
+            normalResim = Image.FromFile(@"C:\Users\halit\OneDrive\Masaüstü\2223249.png"); // Normal boyutlu resim
+            buyutulmusResim = Image.FromFile(@"C:\Users\halit\OneDrive\Masaüstü\278-2789620_free-user-icons-account-icon-flat.jpg"); // Tam ekran modunda gösterilecek resim
+
         }
 
         #region NAVBAR
@@ -96,5 +102,26 @@ namespace meetingProject
 
         #endregion
 
+        private void picEnlargeWindow_Click(object sender, EventArgs e)
+        {
+            //Programın tam ekrana alınıp butonun resminin ekran boyutuna göre değiştirilmesi
+            if (!tamEkranModu)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                picEnlargeWindow.Image = buyutulmusResim;
+                tamEkranModu = true;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                picEnlargeWindow.Image = normalResim;
+                tamEkranModu = false;
+            }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
