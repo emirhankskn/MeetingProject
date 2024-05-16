@@ -17,6 +17,7 @@ using System.Diagnostics;
 using System.Dynamic;
 using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
+using MySql.Data.MySqlClient;
 #endregion
 
 namespace meetingProject
@@ -24,12 +25,27 @@ namespace meetingProject
     public partial class meetingForm : Form
     {
         #region VARIABLES FOR ALL FUNCTIONS
+
+        #region RECORDING
         private Recorder rec;
         private WaveInEvent waveIn;
         private WaveFileWriter writer;
         private string outputSoundPath;
         private bool closing = false;
         DateTime date;
+        #endregion
+
+        #region CHRONOMETER
+        private bool chronoRunning = false;
+        private TimeSpan elapsedTime;
+        private DateTime chronoStart;
+        #endregion
+
+        #region MYSQL
+        private MySqlConnection connection;
+        private string connectionString = "server=193.57.41.19;user=kskn;password=26589479124Ek;database=recordmeeting;";
+        #endregion
+
         #endregion
 
         #region FORM CONSTRUCTOR
@@ -51,6 +67,40 @@ namespace meetingProject
         {
             btnRecord.Enabled = true;
             btnStop.Enabled = false;
+
+            getData();
+
+        }
+        #endregion
+
+        #region GET DATAS
+        private void getData()
+        {
+            dataGridView1.Rows.Clear();
+
+            connection = new MySqlConnection(connectionString);
+            connection.Open();
+
+            string query = "SELECT * FROM meetingrecords";
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                int ID = reader.GetInt32("ID");
+                string title = reader.GetString("title");
+                string subject = reader.GetString("subject");
+                string duration = reader.GetString("duration");
+                DateTime date = reader.GetDateTime(reader.GetOrdinal("date_time"));
+                string dateString = date.ToString("yyyy-MM-dd HH:mm:ss");
+
+                dataGridView1.Rows.Add(ID, title, subject, duration, dateString);
+            }
+
+            reader.Close();
+
+            connection.Close();
         }
         #endregion
 
@@ -129,6 +179,14 @@ namespace meetingProject
         }
         #endregion
 
+        #region TIMER
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            elapsedTime = DateTime.Now - chronoStart;
+            lblTimer.Text = elapsedTime.ToString(@"hh\:mm\:ss");
+        }
+        #endregion
+
         #region RECORD FUNCTION
         private void btnRecord_Click(object sender, EventArgs e)
         {
@@ -137,7 +195,14 @@ namespace meetingProject
             {
                 lblErrorSelectFolder.Visible = false;
                 date = DateTime.Now;
-                
+
+                #region TIMER
+                lblTimer.Visible = true;
+                timer1.Start();
+                chronoStart = DateTime.Now - elapsedTime;
+                chronoRunning = true;
+                #endregion
+
                 #region VIDEO
                 btnRecord.Enabled = false;
                 rec = new Recorder(new RecorderParams(date.ToString("d_MMM_yy_HH-mm")+".avi",
@@ -160,6 +225,8 @@ namespace meetingProject
                 btnRecord.Enabled = false;
                 btnStop.Enabled = true;
                 #endregion
+
+                
             }
         }
         #endregion
@@ -171,11 +238,16 @@ namespace meetingProject
             rec.Dispose();
             #endregion
 
-
             #region SOUND
             waveIn.StopRecording();
             #endregion
 
+            #region TIMER
+            timer1.Stop();
+            chronoRunning = false;
+            elapsedTime = TimeSpan.Zero;
+            lblTimer.Visible = false;
+            #endregion
 
             #region PYTHON ENTEGRATION
             string jsonFilePath = Environment.CurrentDirectory+@"\parameters.json";
@@ -279,6 +351,7 @@ namespace meetingProject
         {
             Environment.Exit(0);
         }
+
         #endregion
 
         

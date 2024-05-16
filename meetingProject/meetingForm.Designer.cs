@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(meetingForm));
             this.exitTopRight = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.lblTimer = new System.Windows.Forms.Label();
             this.lblErrorSelectFolder = new System.Windows.Forms.Label();
             this.txtOutputFolder = new System.Windows.Forms.TextBox();
             this.browseFolder = new System.Windows.Forms.Button();
@@ -57,6 +59,18 @@
             this.btnSettings = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.exitTopRight)).BeginInit();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -64,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // exitTopRight
@@ -80,6 +95,8 @@
             // panelMain
             // 
             this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelMain.Controls.Add(this.groupBox1);
+            this.panelMain.Controls.Add(this.lblTimer);
             this.panelMain.Controls.Add(this.lblErrorSelectFolder);
             this.panelMain.Controls.Add(this.txtOutputFolder);
             this.panelMain.Controls.Add(this.browseFolder);
@@ -97,12 +114,24 @@
             this.panelMain.Size = new System.Drawing.Size(1128, 721);
             this.panelMain.TabIndex = 2;
             // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblTimer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblTimer.Location = new System.Drawing.Point(530, 628);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(21, 25);
+            this.lblTimer.TabIndex = 14;
+            this.lblTimer.Text = "0";
+            this.lblTimer.Visible = false;
+            // 
             // lblErrorSelectFolder
             // 
             this.lblErrorSelectFolder.AutoSize = true;
             this.lblErrorSelectFolder.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblErrorSelectFolder.ForeColor = System.Drawing.Color.Brown;
-            this.lblErrorSelectFolder.Location = new System.Drawing.Point(312, 623);
+            this.lblErrorSelectFolder.Location = new System.Drawing.Point(312, 670);
             this.lblErrorSelectFolder.Name = "lblErrorSelectFolder";
             this.lblErrorSelectFolder.Size = new System.Drawing.Size(182, 19);
             this.lblErrorSelectFolder.TabIndex = 13;
@@ -112,7 +141,7 @@
             // txtOutputFolder
             // 
             this.txtOutputFolder.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtOutputFolder.Location = new System.Drawing.Point(280, 532);
+            this.txtOutputFolder.Location = new System.Drawing.Point(280, 579);
             this.txtOutputFolder.Name = "txtOutputFolder";
             this.txtOutputFolder.ReadOnly = true;
             this.txtOutputFolder.Size = new System.Drawing.Size(244, 23);
@@ -125,7 +154,7 @@
             this.browseFolder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.browseFolder.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.browseFolder.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.browseFolder.Location = new System.Drawing.Point(434, 483);
+            this.browseFolder.Location = new System.Drawing.Point(434, 530);
             this.browseFolder.Name = "browseFolder";
             this.browseFolder.Size = new System.Drawing.Size(70, 31);
             this.browseFolder.TabIndex = 11;
@@ -138,7 +167,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(288, 486);
+            this.label2.Location = new System.Drawing.Point(288, 533);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(149, 23);
             this.label2.TabIndex = 10;
@@ -151,9 +180,9 @@
             this.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStop.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnStop.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnStop.Location = new System.Drawing.Point(405, 571);
+            this.btnStop.Location = new System.Drawing.Point(407, 618);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(119, 49);
+            this.btnStop.Size = new System.Drawing.Size(117, 49);
             this.btnStop.TabIndex = 7;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = false;
@@ -166,9 +195,9 @@
             this.btnRecord.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRecord.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnRecord.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRecord.Location = new System.Drawing.Point(280, 571);
+            this.btnRecord.Location = new System.Drawing.Point(280, 618);
             this.btnRecord.Name = "btnRecord";
-            this.btnRecord.Size = new System.Drawing.Size(119, 49);
+            this.btnRecord.Size = new System.Drawing.Size(121, 49);
             this.btnRecord.TabIndex = 6;
             this.btnRecord.Text = "Record";
             this.btnRecord.UseVisualStyleBackColor = false;
@@ -201,9 +230,15 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Silver;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.columnID,
+            this.columnTitle,
+            this.columnSubject,
+            this.columnDuration,
+            this.columnDate});
             this.dataGridView1.Location = new System.Drawing.Point(263, 57);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(853, 394);
+            this.dataGridView1.Size = new System.Drawing.Size(853, 428);
             this.dataGridView1.TabIndex = 5;
             // 
             // panelNavBar
@@ -417,6 +452,108 @@
             this.label1.Text = "Speech To Text App";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // columnID
+            // 
+            this.columnID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.columnID.HeaderText = "ID";
+            this.columnID.Name = "columnID";
+            this.columnID.Width = 43;
+            // 
+            // columnTitle
+            // 
+            this.columnTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnTitle.HeaderText = "Meeting Title";
+            this.columnTitle.Name = "columnTitle";
+            // 
+            // columnSubject
+            // 
+            this.columnSubject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnSubject.HeaderText = "Meeting Subject";
+            this.columnSubject.Name = "columnSubject";
+            // 
+            // columnDuration
+            // 
+            this.columnDuration.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnDuration.HeaderText = "Duration";
+            this.columnDuration.Name = "columnDuration";
+            // 
+            // columnDate
+            // 
+            this.columnDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnDate.HeaderText = "Recorded Date";
+            this.columnDate.Name = "columnDate";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(601, 545);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(378, 134);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(16, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 23);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Title :";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox1.Location = new System.Drawing.Point(76, 14);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(296, 23);
+            this.textBox1.TabIndex = 16;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(6, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 23);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Subject :";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(76, 44);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(296, 45);
+            this.richTextBox1.TabIndex = 18;
+            this.richTextBox1.Text = "";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Maroon;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(147, 95);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(83, 33);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Add";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // meetingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,6 +574,8 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -471,5 +610,18 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Label lblErrorSelectFolder;
         private System.Windows.Forms.PictureBox btnSettings;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnSubject;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnDuration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnDate;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
