@@ -562,6 +562,7 @@
             this.ClientSize = new System.Drawing.Size(1128, 721);
             this.Controls.Add(this.panelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "meetingForm";
             this.Text = "meetingForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.meetingForm_FormClosing_1);

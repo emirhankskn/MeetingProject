@@ -46,22 +46,22 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.lblUsername = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.btnSettings = new System.Windows.Forms.PictureBox();
-            this.exitTopRight = new System.Windows.Forms.PictureBox();
-            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.picEnlargeWindow = new System.Windows.Forms.PictureBox();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.exitTopRight = new System.Windows.Forms.PictureBox();
+            this.btnSettings = new System.Windows.Forms.PictureBox();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panelNavBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.exitTopRight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnlargeWindow)).BeginInit();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnlargeWindow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exitTopRight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -276,6 +276,18 @@
             this.panel7.Size = new System.Drawing.Size(878, 721);
             this.panel7.TabIndex = 6;
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Transparent;
+            this.panel6.Controls.Add(this.label1);
+            this.panel6.Controls.Add(this.lblUsername);
+            this.panel6.Location = new System.Drawing.Point(0, 1);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(716, 41);
+            this.panel6.TabIndex = 8;
+            this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel6_MouseDown);
+            this.panel6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel6_MouseMove);
+            // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
@@ -302,17 +314,17 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
-            // btnSettings
+            // picEnlargeWindow
             // 
-            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
-            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-            this.btnSettings.Location = new System.Drawing.Point(722, 3);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(39, 39);
-            this.btnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnSettings.TabIndex = 5;
-            this.btnSettings.TabStop = false;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            this.picEnlargeWindow.BackColor = System.Drawing.Color.Transparent;
+            this.picEnlargeWindow.Image = ((System.Drawing.Image)(resources.GetObject("picEnlargeWindow.Image")));
+            this.picEnlargeWindow.Location = new System.Drawing.Point(798, 3);
+            this.picEnlargeWindow.Name = "picEnlargeWindow";
+            this.picEnlargeWindow.Size = new System.Drawing.Size(39, 39);
+            this.picEnlargeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picEnlargeWindow.TabIndex = 6;
+            this.picEnlargeWindow.TabStop = false;
+            this.picEnlargeWindow.Click += new System.EventHandler(this.picEnlargeWindow_Click);
             // 
             // exitTopRight
             // 
@@ -326,35 +338,23 @@
             this.exitTopRight.TabStop = false;
             this.exitTopRight.Click += new System.EventHandler(this.exitTopRight_Click);
             // 
+            // btnSettings
+            // 
+            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
+            this.btnSettings.Location = new System.Drawing.Point(722, 3);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(39, 39);
+            this.btnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnSettings.TabIndex = 5;
+            this.btnSettings.TabStop = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
             // ımageList1
             // 
             this.ımageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.ımageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // picEnlargeWindow
-            // 
-            this.picEnlargeWindow.BackColor = System.Drawing.Color.Transparent;
-            this.picEnlargeWindow.Image = ((System.Drawing.Image)(resources.GetObject("picEnlargeWindow.Image")));
-            this.picEnlargeWindow.Location = new System.Drawing.Point(798, 3);
-            this.picEnlargeWindow.Name = "picEnlargeWindow";
-            this.picEnlargeWindow.Size = new System.Drawing.Size(39, 39);
-            this.picEnlargeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picEnlargeWindow.TabIndex = 6;
-            this.picEnlargeWindow.TabStop = false;
-            this.picEnlargeWindow.Click += new System.EventHandler(this.picEnlargeWindow_Click);
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.Controls.Add(this.label1);
-            this.panel6.Controls.Add(this.lblUsername);
-            this.panel6.Location = new System.Drawing.Point(0, 1);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(716, 41);
-            this.panel6.TabIndex = 8;
-            this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel6_MouseDown);
-            this.panel6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel6_MouseMove);
             // 
             // MainMenu
             // 
@@ -364,6 +364,7 @@
             this.ClientSize = new System.Drawing.Size(1128, 721);
             this.Controls.Add(this.panelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -372,12 +373,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelMain.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.exitTopRight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnlargeWindow)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnlargeWindow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exitTopRight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
             this.ResumeLayout(false);
 
         }
