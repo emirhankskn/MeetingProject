@@ -34,7 +34,7 @@ namespace meetingProject
             }
             if (this.Opacity == 0)
             {
-                Login login = new Login();
+                LoginUI login = new LoginUI();
                 this.Hide();
                 login.Show();
                 timer1.Enabled = false;

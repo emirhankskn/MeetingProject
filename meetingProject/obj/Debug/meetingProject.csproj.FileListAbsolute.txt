@@ -92,7 +92,6 @@ C:\Users\halit\OneDrive\Masaüstü\GitProje\MeetingProject\meetingProject\obj\De
 C:\Users\halit\OneDrive\Masaüstü\GitProje\MeetingProject\meetingProject\obj\Debug\meetingProject.pdb
 C:\Users\halit\OneDrive\Masaüstü\GitProje\MeetingProject\meetingProject\obj\Debug\meetingProject.Anim.resources
 C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.Anim.resources
-C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.Login.resources
 C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\BouncyCastle.Cryptography.dll
@@ -126,3 +125,4 @@ C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\System.M
 C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Emir\Desktop\GitKraken\MeetingProject\meetingProject\obj\Debug\meetingProject.LoginUI.resources

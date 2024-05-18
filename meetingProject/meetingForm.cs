@@ -24,34 +24,26 @@ namespace meetingProject
 {
     public partial class meetingForm : Form
     {
-        #region VARIABLES FOR ALL FUNCTIONS
 
-            #region RECORDING
-            private Recorder rec;
-            private WaveInEvent waveIn;
-            private WaveFileWriter writer;
-            private string outputSoundPath;
-            private bool closing = false;
-            private double soundDuration = 0;
+        private Recorder rec;
+        private WaveInEvent waveIn;
+        private WaveFileWriter writer;
+        private string outputSoundPath;
+        private bool closing = false;
+        private double soundDuration = 0;
+        DateTime date;
 
-            DateTime date;
-            #endregion
+        private bool chronoRunning = false;
+        private TimeSpan elapsedTime;
+        private DateTime chronoStart;
 
-            #region CHRONOMETER
-            private bool chronoRunning = false;
-            private TimeSpan elapsedTime;
-            private DateTime chronoStart;
-            #endregion
+        private MySqlConnection connection;
+        private string connectionString = "server=193.57.41.19;user=kskn;password=26589479124Ek;database=recordmeeting;";
 
-            #region MYSQL
-            private MySqlConnection connection;
-            private string connectionString = "server=193.57.41.19;user=kskn;password=26589479124Ek;database=recordmeeting;";
-            #endregion
+        private LoginUI UserDatas;
 
-        #endregion
 
-        #region FORM CONSTRUCTOR
-        public meetingForm()
+        public meetingForm(LoginUI loginUI)
         {
             InitializeComponent();
             #region TO MAKE NAVBAR BUTTONS DO THE SAME THING ON CLICK EVENT
@@ -61,8 +53,13 @@ namespace meetingProject
             btnOldRecords.Click += NavbarButton_Click;
             btnMeetingAnalysis.Click += NavbarButton_Click;
             #endregion
+
+            this.UserDatas = loginUI;
+            string email = UserDatas.emailP;
+            string username = UserDatas.usernameP;
+            int userID = UserDatas.userIDP;
         }
-        #endregion
+
 
         #region FORM LOAD
         private void meetingForm_Load(object sender, EventArgs e)
@@ -130,9 +127,9 @@ namespace meetingProject
 
                 switch (formName)
                 {
-                    case "meetingForm": formToShow = new meetingForm(); break;
-                    case "translateFileForm": formToShow = new meetingForm(); break;
-                    case "speechToTextForm": formToShow = new meetingForm(); break;
+                    case "meetingForm": formToShow = new meetingForm(this.UserDatas); break;
+                    case "translateFileForm": formToShow = new meetingForm(this.UserDatas); break;
+                    case "speechToTextForm": formToShow = new meetingForm(this.UserDatas); break;
                     default: break;
                 }
 
@@ -150,33 +147,21 @@ namespace meetingProject
         #endregion
 
         #region FORM MOVEABLE FROM PANEL (DOESN'T WORK LOOK IT LATER)
-        private bool mouseDownBool;
-        private Point lastLocation;
-        private void mouseDown(object sender, MouseEventArgs e)
+        private Point mouseLocation;
+        private void panel6_MouseDown(object sender, MouseEventArgs e)
         {
-            mouseDownBool = true;
-            lastLocation = e.Location;
+            mouseLocation = new Point(-e.X - 254, -e.Y);
         }
-        private void mouseMove(object sender, MouseEventArgs e)
+        private void panel6_MouseMove(object sender, MouseEventArgs e)
         {
-            if (mouseDownBool)
+            if (e.Button == MouseButtons.Left)
             {
-                Point newLocation = this.Location;
-                newLocation.X += e.X - lastLocation.X;
-                newLocation.Y += e.Y - lastLocation.Y;
-
-                newLocation.X = Math.Max(0, newLocation.X);
-                newLocation.Y = Math.Max(0, newLocation.Y);
-                newLocation.X = Math.Min(Screen.PrimaryScreen.WorkingArea.Width - this.Width, newLocation.X);
-                newLocation.Y = Math.Min(Screen.PrimaryScreen.WorkingArea.Height - this.Height, newLocation.Y);
-
-                this.Location = newLocation;
+                Point mousePose = Control.MousePosition;
+                mousePose.Offset(mouseLocation.X, mouseLocation.Y);
+                Location = mousePose;
             }
         }
-        private void mouseUp(object sender, MouseEventArgs e)
-        {
-            mouseDownBool = false;
-        }
+
         #endregion
 
         #region BROWSE FOLDER
@@ -257,7 +242,7 @@ namespace meetingProject
             #endregion
 
             #region PYTHON ENTEGRATION
-            string jsonFilePath = Environment.CurrentDirectory+@"\parameters.json";
+            string jsonFilePath = Environment.CurrentDirectory + @"\parameters.json";
             string jsonContent = File.ReadAllText(jsonFilePath);
             JObject jsonObj = JObject.Parse(jsonContent);
             jsonObj["output_file"] = Path.Combine(txtOutputFolder.Text, "transcript.txt");
@@ -276,7 +261,7 @@ namespace meetingProject
 
                 Process.Start(startInfo);
             }
-            else MessageBox.Show("Python is not exists on your computer !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else { MessageBox.Show("Python is not exists on your computer !", "Error"); Environment.Exit(0); }
 
             #region ADD AND REMOVE DURATIONS IN DATABASE
             using (var connection = new MySqlConnection(connectionString))
@@ -432,6 +417,8 @@ namespace meetingProject
         {
             Environment.Exit(0);
         }
+
+
         #endregion
 
         

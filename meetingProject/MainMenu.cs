@@ -15,7 +15,9 @@ namespace meetingProject
         private Image normalResim;
         private Image buyutulmusResim;
         private bool tamEkranModu = false;
-        public MainMenu()
+        private LoginUI UserDatas;
+        
+        public MainMenu(LoginUI loginUI)
         {
             InitializeComponent();
             btnMeeting.Click += NavbarButton_Click;
@@ -25,7 +27,16 @@ namespace meetingProject
             btnMeetingAnalysis.Click += NavbarButton_Click;
             //normalResim = Image.FromFile(@"C:\Users\halit\OneDrive\Masaüstü\2223249.png"); // Normal boyutlu resim
             //buyutulmusResim = Image.FromFile(@"C:\Users\halit\OneDrive\Masaüstü\278-2789620_free-user-icons-account-icon-flat.jpg"); // Tam ekran modunda gösterilecek resim
+            this.UserDatas = loginUI;
 
+            string email = UserDatas.emailP;
+            string username = UserDatas.usernameP;
+            int userID = UserDatas.userIDP;
+
+        }
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+            lblUsername.Text = UserDatas.usernameP;
         }
 
         #region NAVBAR
@@ -42,9 +53,9 @@ namespace meetingProject
                 // Form isimlerini ve form nesnelerini eşleştirmek için bir switch kullanıyoruz
                 switch (formName)
                 {
-                    case "meetingForm": formToShow = new meetingForm(); break;
-                    case "translateFileForm": formToShow = new meetingForm(); break;
-                    case "speechToTextForm": formToShow = new meetingForm(); break;
+                    case "meetingForm": formToShow = new meetingForm(this.UserDatas); break;
+                    case "translateFileForm": formToShow = new meetingForm(this.UserDatas); break;
+                    case "speechToTextForm": formToShow = new meetingForm(this.UserDatas); break;
                     default: break;
                 }
 
@@ -63,14 +74,13 @@ namespace meetingProject
         #endregion
 
         #region FORM MOVEABLE FROM PANEL
-        public Point mouseLocation; //mouseLocation isimli bir Point nesnesi oluşturuldu
-        private void mouse_Down(object sender, MouseEventArgs e)
+        private Point mouseLocation; //mouseLocation isimli bir Point nesnesi oluşturuldu
+        private void panel6_MouseDown(object sender, MouseEventArgs e)
         {
             mouseLocation = new Point(-e.X - 254, -e.Y); //Lokasyonu verildi fakat bizim panel tam olarak bütün form genişliğinde olmadığından
                                                          // doğru çalışması için x ekseninde değişklik yapılması gerekti
         }
-        //Bu fonksiyon sayesinde mouse hareket ettiğinde formun lokasyonunu da mousenin lokasyonuna göre ayarlamsını sağlıyoruz
-        private void mouse_Move(object sender, MouseEventArgs e)
+        private void panel6_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -123,5 +133,7 @@ namespace meetingProject
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        
     }
 }

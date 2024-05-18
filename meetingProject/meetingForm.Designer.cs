@@ -30,12 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(meetingForm));
-            this.exitTopRight = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.pnlAdd = new System.Windows.Forms.Panel();
             this.rTxtMeetingSubject = new System.Windows.Forms.RichTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtMeetingTitle = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtMeetingTitle = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.lblErrorSelectFolder = new System.Windows.Forms.Label();
             this.txtOutputFolder = new System.Windows.Forms.TextBox();
@@ -66,31 +67,19 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnSettings = new System.Windows.Forms.PictureBox();
+            this.exitTopRight = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.pnlAdd = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.exitTopRight)).BeginInit();
             this.panelMain.SuspendLayout();
+            this.pnlAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelNavBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
-            this.pnlAdd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.exitTopRight)).BeginInit();
             this.SuspendLayout();
-            // 
-            // exitTopRight
-            // 
-            this.exitTopRight.Image = ((System.Drawing.Image)(resources.GetObject("exitTopRight.Image")));
-            this.exitTopRight.Location = new System.Drawing.Point(838, 2);
-            this.exitTopRight.Name = "exitTopRight";
-            this.exitTopRight.Size = new System.Drawing.Size(38, 38);
-            this.exitTopRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.exitTopRight.TabIndex = 3;
-            this.exitTopRight.TabStop = false;
-            this.exitTopRight.Click += new System.EventHandler(this.exitTopRight_Click);
             // 
             // panelMain
             // 
@@ -114,32 +103,41 @@
             this.panelMain.Size = new System.Drawing.Size(1128, 721);
             this.panelMain.TabIndex = 2;
             // 
+            // pnlAdd
+            // 
+            this.pnlAdd.Controls.Add(this.rTxtMeetingSubject);
+            this.pnlAdd.Controls.Add(this.btnAdd);
+            this.pnlAdd.Controls.Add(this.label3);
+            this.pnlAdd.Controls.Add(this.txtMeetingTitle);
+            this.pnlAdd.Controls.Add(this.label4);
+            this.pnlAdd.Location = new System.Drawing.Point(637, 530);
+            this.pnlAdd.Name = "pnlAdd";
+            this.pnlAdd.Size = new System.Drawing.Size(392, 159);
+            this.pnlAdd.TabIndex = 19;
+            this.pnlAdd.Visible = false;
+            // 
             // rTxtMeetingSubject
             // 
-            this.rTxtMeetingSubject.Location = new System.Drawing.Point(79, 49);
+            this.rTxtMeetingSubject.Location = new System.Drawing.Point(79, 57);
             this.rTxtMeetingSubject.Name = "rTxtMeetingSubject";
             this.rTxtMeetingSubject.Size = new System.Drawing.Size(296, 45);
             this.rTxtMeetingSubject.TabIndex = 18;
             this.rTxtMeetingSubject.Text = "";
             // 
-            // label4
+            // btnAdd
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(9, 60);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 23);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Subject :";
-            // 
-            // txtMeetingTitle
-            // 
-            this.txtMeetingTitle.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtMeetingTitle.Location = new System.Drawing.Point(79, 14);
-            this.txtMeetingTitle.Name = "txtMeetingTitle";
-            this.txtMeetingTitle.Size = new System.Drawing.Size(296, 23);
-            this.txtMeetingTitle.TabIndex = 16;
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAdd.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAdd.Location = new System.Drawing.Point(13, 118);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(362, 33);
+            this.btnAdd.TabIndex = 16;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label3
             // 
@@ -151,6 +149,25 @@
             this.label3.Size = new System.Drawing.Size(44, 23);
             this.label3.TabIndex = 16;
             this.label3.Text = "Title :";
+            // 
+            // txtMeetingTitle
+            // 
+            this.txtMeetingTitle.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtMeetingTitle.Location = new System.Drawing.Point(79, 14);
+            this.txtMeetingTitle.Name = "txtMeetingTitle";
+            this.txtMeetingTitle.Size = new System.Drawing.Size(296, 23);
+            this.txtMeetingTitle.TabIndex = 16;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(9, 68);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 23);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Subject :";
             // 
             // lblTimer
             // 
@@ -491,22 +508,35 @@
             this.panel6.Controls.Add(this.label1);
             this.panel6.Location = new System.Drawing.Point(250, -1);
             this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(2);
             this.panel6.Size = new System.Drawing.Size(879, 43);
             this.panel6.TabIndex = 4;
-            this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
-            this.panel6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove);
-            this.panel6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mouseUp);
+            this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel6_MouseDown);
+            this.panel6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel6_MouseMove);
             // 
             // btnSettings
             // 
+            this.btnSettings.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-            this.btnSettings.Location = new System.Drawing.Point(794, 2);
+            this.btnSettings.Location = new System.Drawing.Point(799, 2);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(38, 38);
+            this.btnSettings.Size = new System.Drawing.Size(39, 39);
             this.btnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnSettings.TabIndex = 4;
             this.btnSettings.TabStop = false;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
+            // exitTopRight
+            // 
+            this.exitTopRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.exitTopRight.Image = ((System.Drawing.Image)(resources.GetObject("exitTopRight.Image")));
+            this.exitTopRight.Location = new System.Drawing.Point(838, 2);
+            this.exitTopRight.Name = "exitTopRight";
+            this.exitTopRight.Size = new System.Drawing.Size(39, 39);
+            this.exitTopRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.exitTopRight.TabIndex = 3;
+            this.exitTopRight.TabStop = false;
+            this.exitTopRight.Click += new System.EventHandler(this.exitTopRight_Click);
             // 
             // label1
             // 
@@ -514,7 +544,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(8, 6);
+            this.label1.Location = new System.Drawing.Point(8, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(193, 29);
             this.label1.TabIndex = 1;
@@ -524,34 +554,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAdd.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAdd.Location = new System.Drawing.Point(23, 100);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(338, 33);
-            this.btnAdd.TabIndex = 16;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // pnlAdd
-            // 
-            this.pnlAdd.Controls.Add(this.rTxtMeetingSubject);
-            this.pnlAdd.Controls.Add(this.btnAdd);
-            this.pnlAdd.Controls.Add(this.label3);
-            this.pnlAdd.Controls.Add(this.txtMeetingTitle);
-            this.pnlAdd.Controls.Add(this.label4);
-            this.pnlAdd.Location = new System.Drawing.Point(637, 530);
-            this.pnlAdd.Name = "pnlAdd";
-            this.pnlAdd.Size = new System.Drawing.Size(392, 137);
-            this.pnlAdd.TabIndex = 19;
-            this.pnlAdd.Visible = false;
             // 
             // meetingForm
             // 
@@ -564,17 +566,17 @@
             this.Text = "meetingForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.meetingForm_FormClosing_1);
             this.Load += new System.EventHandler(this.meetingForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.exitTopRight)).EndInit();
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
+            this.pnlAdd.ResumeLayout(false);
+            this.pnlAdd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelNavBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
-            this.pnlAdd.ResumeLayout(false);
-            this.pnlAdd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.exitTopRight)).EndInit();
             this.ResumeLayout(false);
 
         }
