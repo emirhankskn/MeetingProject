@@ -1,7 +1,8 @@
 {
-  "prefix": "merhaba, benim adım ",
-  "file_url": "C:\\Users\\Emir\\Desktop\\recorded.wav",
-  "speaker_labels": true,
-  "language": "tr",
-  "output_file": "C:\\Users\\Emir\\Desktop\\transcript.txt"
+    "prefix": "merhaba, benim ad\u0131m ",
+    "file_url": "C:\\Users\\Emir\\Desktop\\18_May_24_05-43.wav",
+    "speaker_labels": true,
+    "language": "tr",
+    "transcript_duration": 9.534983158111572,
+    "output_file": "C:\\Users\\Emir\\Desktop\\transcript.txt"
 }

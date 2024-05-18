@@ -26,25 +26,27 @@ namespace meetingProject
     {
         #region VARIABLES FOR ALL FUNCTIONS
 
-        #region RECORDING
-        private Recorder rec;
-        private WaveInEvent waveIn;
-        private WaveFileWriter writer;
-        private string outputSoundPath;
-        private bool closing = false;
-        DateTime date;
-        #endregion
+            #region RECORDING
+            private Recorder rec;
+            private WaveInEvent waveIn;
+            private WaveFileWriter writer;
+            private string outputSoundPath;
+            private bool closing = false;
+            private double soundDuration = 0;
 
-        #region CHRONOMETER
-        private bool chronoRunning = false;
-        private TimeSpan elapsedTime;
-        private DateTime chronoStart;
-        #endregion
+            DateTime date;
+            #endregion
 
-        #region MYSQL
-        private MySqlConnection connection;
-        private string connectionString = "server=193.57.41.19;user=kskn;password=26589479124Ek;database=recordmeeting;";
-        #endregion
+            #region CHRONOMETER
+            private bool chronoRunning = false;
+            private TimeSpan elapsedTime;
+            private DateTime chronoStart;
+            #endregion
+
+            #region MYSQL
+            private MySqlConnection connection;
+            private string connectionString = "server=193.57.41.19;user=kskn;password=26589479124Ek;database=recordmeeting;";
+            #endregion
 
         #endregion
 
@@ -68,54 +70,64 @@ namespace meetingProject
             btnRecord.Enabled = true;
             btnStop.Enabled = false;
 
-            getData();
-
+            var columns = new List<string> { "ID", "title", "subject", "duration", "date_time" };
+            fillDataGridView("meetingrecords", columns, dataGridView1);
         }
         #endregion
 
-        #region GET DATAS
-        private void getData()
+        #region GET DATAS AND WRITE IT TO DATAGRIDVIEW
+        public void fillDataGridView(string table, List<string> columns, DataGridView datagridname)
+        {
+            var data = getData(table, columns);
+
+            dataGridView1.Rows.Clear();
+
+            foreach (var row in data)
+            {
+                var values = columns.Select(column => row[column]).ToArray();
+                datagridname.Rows.Add(values);
+            }
+        }
+        public List<Dictionary<string, object>> getData(string table, List<string> columns)
         {
             dataGridView1.Rows.Clear();
 
-            connection = new MySqlConnection(connectionString);
-            connection.Open();
+            var results = new List<Dictionary<string, object>>();
 
-            string query = "SELECT * FROM meetingrecords";
-            MySqlCommand command = new MySqlCommand(query, connection);
-
-            MySqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            using (var connection = new MySqlConnection(connectionString))
             {
-                int ID = reader.GetInt32("ID");
-                string title = reader.GetString("title");
-                string subject = reader.GetString("subject");
-                string duration = reader.GetString("duration");
-                DateTime date = reader.GetDateTime(reader.GetOrdinal("date_time"));
-                string dateString = date.ToString("yyyy-MM-dd HH:mm:ss");
+                connection.Open();
 
-                dataGridView1.Rows.Add(ID, title, subject, duration, dateString);
+                string columnNames = string.Join(", ", columns);
+                string query = $"SELECT {columnNames} FROM {table}";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var row = new Dictionary<string, object>();
+                            foreach (var column in columns) row[column] = reader[column];
+
+                            results.Add(row);
+                        }
+                    }
+                }
             }
-
-            reader.Close();
-
-            connection.Close();
+            return results;
         }
-        #endregion
+        #endregion 
 
         #region NAVBAR
         private void NavbarButton_Click(object sender, EventArgs e)
         {
             Button clickedButton = sender as Button;
 
-            // Tıklanan butonun Tag özelliğine göre ilgili formu aç
             if (clickedButton != null && clickedButton.Tag != null)
             {
                 string formName = clickedButton.Tag.ToString();
                 Form formToShow = null;
 
-                // Form isimlerini ve form nesnelerini eşleştirmek için bir switch kullanıyoruz
                 switch (formName)
                 {
                     case "meetingForm": formToShow = new meetingForm(); break;
@@ -124,7 +136,6 @@ namespace meetingProject
                     default: break;
                 }
 
-                // Sağdaki panele seçilen formu yükle
                 if (formToShow != null)
                 {
                     formToShow.TopLevel = false;
@@ -150,12 +161,10 @@ namespace meetingProject
         {
             if (mouseDownBool)
             {
-                // Yeni form konumunu hesapla
                 Point newLocation = this.Location;
                 newLocation.X += e.X - lastLocation.X;
                 newLocation.Y += e.Y - lastLocation.Y;
 
-                // Formun ekranın dışına çıkmasını engelle
                 newLocation.X = Math.Max(0, newLocation.X);
                 newLocation.Y = Math.Max(0, newLocation.Y);
                 newLocation.X = Math.Min(Screen.PrimaryScreen.WorkingArea.Width - this.Width, newLocation.X);
@@ -213,7 +222,7 @@ namespace meetingProject
                 #region SOUND
                 var outputFolder = txtOutputFolder.Text;
                 Directory.CreateDirectory(outputFolder);
-                outputSoundPath = Path.Combine(outputFolder, "recorded.wav");
+                outputSoundPath = Path.Combine(outputFolder, date.ToString("d_MMM_yy_HH-mm")+".wav");
 
                 waveIn = new WaveInEvent();
                 waveIn.DataAvailable += WaveIn_DataAvailable;
@@ -245,8 +254,6 @@ namespace meetingProject
             #region TIMER
             timer1.Stop();
             chronoRunning = false;
-            elapsedTime = TimeSpan.Zero;
-            lblTimer.Visible = false;
             #endregion
 
             #region PYTHON ENTEGRATION
@@ -254,7 +261,8 @@ namespace meetingProject
             string jsonContent = File.ReadAllText(jsonFilePath);
             JObject jsonObj = JObject.Parse(jsonContent);
             jsonObj["output_file"] = Path.Combine(txtOutputFolder.Text, "transcript.txt");
-            jsonObj["file_url"] = txtOutputFolder.Text + @"\recorded.wav";
+            jsonObj["file_url"] = outputSoundPath;
+
 
             File.WriteAllText(jsonFilePath, jsonObj.ToString());
 
@@ -269,8 +277,81 @@ namespace meetingProject
                 Process.Start(startInfo);
             }
             else MessageBox.Show("Python is not exists on your computer !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            #region ADD AND REMOVE DURATIONS IN DATABASE
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string countQuery = "SELECT COUNT(*) FROM transcript_calculate";
+                using (var command = new MySqlCommand(countQuery, connection))
+                {
+                    int rowCount = Convert.ToInt32(command.ExecuteScalar());
+
+                    if (rowCount > 24)
+                    {
+                        string deleteQuery = "DELETE FROM transcript_calculate ORDER BY ID ASC LIMIT 1";
+                        using (var deleteCommand = new MySqlCommand(deleteQuery, connection)) { deleteCommand.ExecuteNonQuery(); }
+                    }
+                    else
+                    {
+                        double transcriptDuration = double.Parse(jsonObj["transcript_duration"].ToString());
+
+                        soundDuration = double.Parse(elapsedTime.TotalSeconds.ToString());
+                        elapsedTime = TimeSpan.Zero;
+
+                        string query = $"INSERT INTO transcript_calculate (sound_duration, transcript_duration)" +
+                                       $" VALUES ('{soundDuration.ToString(System.Globalization.CultureInfo.InvariantCulture)}'," +
+                                       $" '{transcriptDuration.ToString(System.Globalization.CultureInfo.InvariantCulture)}')";
+
+                        using (var cmd = new MySqlCommand(query, connection)) { cmd.ExecuteNonQuery(); }
+                    }
+                }
+            }
             #endregion
 
+            #endregion
+
+            pnlAdd.Visible = true;
+
+        }
+        #endregion
+
+        #region ADD BUTTON
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string title = "";
+            string subject = "";
+            
+            if (!string.IsNullOrEmpty(txtMeetingTitle.Text)) title = txtMeetingTitle.Text;
+            else title = "-";
+
+            if (!string.IsNullOrEmpty(txtMeetingTitle.Text)) subject = rTxtMeetingSubject.Text;
+            else subject = "-";
+
+            string duration = lblTimer.Text;
+
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = $"INSERT INTO meetingrecords (title, subject, duration) " +
+                               $"VALUES ('{title}', '{subject}', '{duration}')";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Meeting record added successfully!", "Success");
+                }
+            }
+
+            var columns = new List<string> { "ID", "title", "subject", "duration", "date_time" };
+            fillDataGridView("meetingrecords", columns, dataGridView1);
+
+            lblTimer.Text = "";
+            txtMeetingTitle.Text = "";
+            rTxtMeetingSubject.Text = "";
+            pnlAdd.Visible = false;
             txtOutputFolder.Clear();
 
         }
@@ -351,7 +432,6 @@ namespace meetingProject
         {
             Environment.Exit(0);
         }
-
         #endregion
 
         
