@@ -7,11 +7,7 @@
       "RelativeMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|solutionrelative:meetingproject\\meetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|c:\\users\\emir\\desktop\\gitkraken\\meetingproject\\meetingproject\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|solutionrelative:meetingproject\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingproject\\meetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|c:\\users\\emir\\desktop\\gitkraken\\meetingproject\\meetingproject\\meetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C0CA0103-4680-43A9-B68A-F034BE406571}|meetingProject\\meetingProject.csproj|solutionrelative:meetingproject\\meetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -22,41 +18,29 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainMenu.cs [Tasar\u0131m]",
-              "DocumentMoniker": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingProject\\MainMenu.cs",
-              "RelativeDocumentMoniker": "meetingProject\\MainMenu.cs",
-              "ToolTip": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingProject\\MainMenu.cs [Tasar\u0131m]",
-              "RelativeToolTip": "meetingProject\\MainMenu.cs [Tasar\u0131m]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T08:02:27.155Z",
-              "EditorCaption": " [Tasar\u0131m]"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "meetingForm.cs",
               "DocumentMoniker": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingProject\\meetingForm.cs",
               "RelativeDocumentMoniker": "meetingProject\\meetingForm.cs",
-              "ToolTip": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingProject\\meetingForm.cs",
-              "RelativeToolTip": "meetingProject\\meetingForm.cs",
-              "ViewState": "AQIAADwAAAAAAAAAAAAgwFsAAAAAAAAA",
+              "ToolTip": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingProject\\meetingForm.cs*",
+              "RelativeToolTip": "meetingProject\\meetingForm.cs*",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAQwOUAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-18T07:36:49.707Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "meetingForm.cs [Tasar\u0131m]",
               "DocumentMoniker": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingProject\\meetingForm.cs",
               "RelativeDocumentMoniker": "meetingProject\\meetingForm.cs",
-              "ToolTip": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingProject\\meetingForm.cs [Tasar\u0131m]",
-              "RelativeToolTip": "meetingProject\\meetingForm.cs [Tasar\u0131m]",
+              "ToolTip": "C:\\Users\\Emir\\Desktop\\GitKraken\\MeetingProject\\meetingProject\\meetingForm.cs [Tasar\u0131m]*",
+              "RelativeToolTip": "meetingProject\\meetingForm.cs [Tasar\u0131m]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-18T07:23:38.57Z",
               "EditorCaption": " [Tasar\u0131m]"

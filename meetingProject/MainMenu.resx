@@ -175,6 +175,18 @@
         w242VojXKJzRvPqncHLgs4VPhZOT/zGJXABiq9gNAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnTranslateFile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAXJJREFUaEPt
+        l9GNAjEMRLcESrlSriMo4TrhOoEOoAPoIIydEdIhnZI4MVlWflI+nLW9Y5GwmiX4BFJKe6wL1izk3XvK
+        sYEGP9pqHRwoqx0U33KP9MWttyPvzhLShVvtsEFiOA3KsOlAndwNhVvToIw2HcjfYR21MmM/m4OgjvpB
+        kCvn8aRVKd2xvvnoD9iXnBPD7rgEchWGZZArg5y1Kl/0/waRnDPD7rgEchWGdSBfjtavVmb6/sMHQB22
+        u4q6Qy43NhgIZdh1sH4Tg8iFF9bwQbxyqx0UP4/XCuj7DEgDrKu2moO8e/q3LHAHP3P4k8GEP5EmCsNp
+        UIZNB+rCn4yGOuoHQa6LP+kFvRSGZZDr4k96QS+FYR3ID3/iBWXYdbB+E4OEP3Eg/EnwEeBnDn8ymPAn
+        0kRhOA3KsOlAXfiT0VBH/SDIdfEnrfEreKYwLINcF3/SGr+CZwrDOpAf/sQLyrDrYP0mBgl/4kD4k8CX
+        ZXkA+wfkFx7RzxwAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btnMeeting.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAA+5JREFUaEPt

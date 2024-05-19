@@ -198,6 +198,7 @@
             this.btnTranslateFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTranslateFile.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnTranslateFile.ForeColor = System.Drawing.Color.White;
+            this.btnTranslateFile.Image = ((System.Drawing.Image)(resources.GetObject("btnTranslateFile.Image")));
             this.btnTranslateFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTranslateFile.Location = new System.Drawing.Point(0, 276);
             this.btnTranslateFile.Name = "btnTranslateFile";

@@ -18,14 +18,14 @@ using System.Dynamic;
 using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
 using MySql.Data.MySqlClient;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Data.SqlClient;
 #endregion
 
 namespace meetingProject
 {
     public partial class meetingForm : Form
     {
-
+        #region VARIABLES FOR ALL PAGE
         private Recorder rec;
         private WaveInEvent waveIn;
         private WaveFileWriter writer;
@@ -42,8 +42,9 @@ namespace meetingProject
         private string connectionString = "server=193.57.41.19;user=kskn;password=26589479124Ek;database=recordmeeting;";
 
         private LoginUI UserDatas;
+        #endregion
 
-
+        #region FORM CONSTRUCTOR
         public meetingForm(LoginUI loginUI)
         {
             InitializeComponent();
@@ -60,7 +61,7 @@ namespace meetingProject
             string username = UserDatas.usernameP;
             int userID = UserDatas.userIDP;
         }
-
+        #endregion
 
         #region FORM LOAD
         private void meetingForm_Load(object sender, EventArgs e)
@@ -259,11 +260,22 @@ namespace meetingProject
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.FileName = pythonExePath;
                 startInfo.Arguments = Environment.CurrentDirectory + @"\rl.py";
-
                 Process.Start(startInfo);
             }
             else { MessageBox.Show("Python is not exists on your computer !", "Error"); Environment.Exit(0); }
 
+            #region MEETING TITLE ORGANIZATION
+            txtMeetingTitle.Enabled = true;
+            txtMeetingSubject.Enabled = true;
+            txtMeetingTitle.Text = "";
+            txtMeetingSubject.Text = "";
+            txtMeetingTitle.BackColor = Color.White;
+            txtMeetingSubject.BackColor = Color.White;
+            txtMeetingTitle.ForeColor = Color.Black;
+            txtMeetingSubject.ForeColor = Color.Black;
+            btnAdd.Enabled = true;
+            #endregion
+            
             #region ADD AND REMOVE DURATIONS IN DATABASE
             using (var connection = new MySqlConnection(connectionString))
             {
@@ -298,8 +310,32 @@ namespace meetingProject
 
             #endregion
 
-            pnlAdd.Visible = true;
+            #region PROGRESS BAR (DOESN'T FINISHED YET)
+            //string query_ratio = @"
+            //SELECT 
+            //    AVG(sound_duration) AS averageSoundDuration,
+            //    AVG(transcript_duration) AS averageTranscriptDuration
+            //FROM 
+            //    transcript_calculate;
+            //";
 
+            //double ratio = 0;
+
+            //using (var connection = new SqlConnection(connectionString))
+            //{
+            //    SqlCommand command = new SqlCommand(query_ratio, connection);
+            //    connection.Open();
+            //    using (SqlDataReader reader = command.ExecuteReader())
+            //    {
+            //        if (reader.Read()) ratio = reader.GetDouble(0) / reader.GetDouble(1);
+            //    }
+            //}
+            //// sound / transcript = süre oranı
+            //// sound / x = süre oranı
+            //// x = süre oranı / sound
+
+            //double calculatedTranscriptTime = ratio / soundDuration;
+            #endregion
         }
         #endregion
 
@@ -310,10 +346,10 @@ namespace meetingProject
             string subject = "";
             
             if (!string.IsNullOrEmpty(txtMeetingTitle.Text)) title = txtMeetingTitle.Text;
-            else title = "-";
+            else title = "-------------";
 
-            if (!string.IsNullOrEmpty(txtMeetingTitle.Text)) subject = rTxtMeetingSubject.Text;
-            else subject = "-";
+            if (!string.IsNullOrEmpty(txtMeetingTitle.Text)) subject = txtMeetingSubject.Text;
+            else subject = "-------------";
 
             string duration = lblTimer.Text;
 
@@ -327,6 +363,19 @@ namespace meetingProject
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.ExecuteNonQuery();
+
+                    #region MEETING TITLE ORGANIZATION
+                    txtMeetingTitle.Enabled = false;
+                    txtMeetingSubject.Enabled = false;
+                    txtMeetingTitle.Text = "Record screen first.";
+                    txtMeetingSubject.Text = "Record screen first.";
+                    txtMeetingTitle.BackColor = Color.Gray;
+                    txtMeetingSubject.BackColor = Color.Gray;
+                    txtMeetingTitle.ForeColor = Color.Black;
+                    txtMeetingSubject.ForeColor = Color.Black;
+                    btnAdd.Enabled = false;
+                    #endregion
+
                     MessageBox.Show("Meeting record added successfully!", "Success");
                 }
             }
@@ -335,9 +384,6 @@ namespace meetingProject
             fillDataGridView("meetingrecords", columns, dataGridView1);
 
             lblTimer.Text = "";
-            txtMeetingTitle.Text = "";
-            rTxtMeetingSubject.Text = "";
-            pnlAdd.Visible = false;
             txtOutputFolder.Clear();
 
         }
@@ -410,18 +456,9 @@ namespace meetingProject
         #endregion
 
         #region EXIT BUTTONS
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
-        }
-        private void exitTopRight_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
-
+        private void btnExit_Click(object sender, EventArgs e) { Environment.Exit(0); }
+        private void exitTopRight_Click(object sender, EventArgs e) { Environment.Exit(0); }
         #endregion
-
-        
+       
     }
 }

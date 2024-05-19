@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(meetingForm));
             this.panelMain = new System.Windows.Forms.Panel();
             this.pnlAdd = new System.Windows.Forms.Panel();
-            this.rTxtMeetingSubject = new System.Windows.Forms.RichTextBox();
+            this.txtMeetingSubject = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMeetingTitle = new System.Windows.Forms.TextBox();
@@ -105,35 +105,41 @@
             // 
             // pnlAdd
             // 
-            this.pnlAdd.Controls.Add(this.rTxtMeetingSubject);
+            this.pnlAdd.Controls.Add(this.txtMeetingSubject);
             this.pnlAdd.Controls.Add(this.btnAdd);
             this.pnlAdd.Controls.Add(this.label3);
             this.pnlAdd.Controls.Add(this.txtMeetingTitle);
             this.pnlAdd.Controls.Add(this.label4);
-            this.pnlAdd.Location = new System.Drawing.Point(637, 530);
+            this.pnlAdd.Location = new System.Drawing.Point(600, 513);
             this.pnlAdd.Name = "pnlAdd";
             this.pnlAdd.Size = new System.Drawing.Size(392, 159);
             this.pnlAdd.TabIndex = 19;
-            this.pnlAdd.Visible = false;
             // 
-            // rTxtMeetingSubject
+            // txtMeetingSubject
             // 
-            this.rTxtMeetingSubject.Location = new System.Drawing.Point(79, 57);
-            this.rTxtMeetingSubject.Name = "rTxtMeetingSubject";
-            this.rTxtMeetingSubject.Size = new System.Drawing.Size(296, 45);
-            this.rTxtMeetingSubject.TabIndex = 18;
-            this.rTxtMeetingSubject.Text = "";
+            this.txtMeetingSubject.BackColor = System.Drawing.Color.Gray;
+            this.txtMeetingSubject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMeetingSubject.Enabled = false;
+            this.txtMeetingSubject.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtMeetingSubject.ForeColor = System.Drawing.Color.Black;
+            this.txtMeetingSubject.Location = new System.Drawing.Point(79, 61);
+            this.txtMeetingSubject.Multiline = true;
+            this.txtMeetingSubject.Name = "txtMeetingSubject";
+            this.txtMeetingSubject.Size = new System.Drawing.Size(296, 41);
+            this.txtMeetingSubject.TabIndex = 18;
+            this.txtMeetingSubject.Text = "Record screen first !";
             // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAdd.Enabled = false;
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAdd.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAdd.Location = new System.Drawing.Point(13, 118);
+            this.btnAdd.Location = new System.Drawing.Point(128, 118);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(362, 33);
+            this.btnAdd.Size = new System.Drawing.Size(137, 33);
             this.btnAdd.TabIndex = 16;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -152,11 +158,16 @@
             // 
             // txtMeetingTitle
             // 
+            this.txtMeetingTitle.BackColor = System.Drawing.Color.Gray;
+            this.txtMeetingTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMeetingTitle.Enabled = false;
             this.txtMeetingTitle.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtMeetingTitle.ForeColor = System.Drawing.Color.Black;
             this.txtMeetingTitle.Location = new System.Drawing.Point(79, 14);
             this.txtMeetingTitle.Name = "txtMeetingTitle";
             this.txtMeetingTitle.Size = new System.Drawing.Size(296, 23);
             this.txtMeetingTitle.TabIndex = 16;
+            this.txtMeetingTitle.Text = "Record screen first !";
             // 
             // label4
             // 
@@ -174,7 +185,7 @@
             this.lblTimer.AutoSize = true;
             this.lblTimer.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblTimer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTimer.Location = new System.Drawing.Point(530, 628);
+            this.lblTimer.Location = new System.Drawing.Point(530, 633);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(21, 25);
             this.lblTimer.TabIndex = 14;
@@ -186,7 +197,7 @@
             this.lblErrorSelectFolder.AutoSize = true;
             this.lblErrorSelectFolder.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblErrorSelectFolder.ForeColor = System.Drawing.Color.Brown;
-            this.lblErrorSelectFolder.Location = new System.Drawing.Point(312, 670);
+            this.lblErrorSelectFolder.Location = new System.Drawing.Point(312, 675);
             this.lblErrorSelectFolder.Name = "lblErrorSelectFolder";
             this.lblErrorSelectFolder.Size = new System.Drawing.Size(182, 19);
             this.lblErrorSelectFolder.TabIndex = 13;
@@ -196,7 +207,7 @@
             // txtOutputFolder
             // 
             this.txtOutputFolder.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtOutputFolder.Location = new System.Drawing.Point(280, 579);
+            this.txtOutputFolder.Location = new System.Drawing.Point(280, 580);
             this.txtOutputFolder.Name = "txtOutputFolder";
             this.txtOutputFolder.ReadOnly = true;
             this.txtOutputFolder.Size = new System.Drawing.Size(244, 23);
@@ -235,7 +246,7 @@
             this.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStop.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnStop.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnStop.Location = new System.Drawing.Point(407, 618);
+            this.btnStop.Location = new System.Drawing.Point(407, 623);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(117, 49);
             this.btnStop.TabIndex = 7;
@@ -250,7 +261,7 @@
             this.btnRecord.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRecord.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnRecord.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRecord.Location = new System.Drawing.Point(280, 618);
+            this.btnRecord.Location = new System.Drawing.Point(280, 623);
             this.btnRecord.Name = "btnRecord";
             this.btnRecord.Size = new System.Drawing.Size(121, 49);
             this.btnRecord.TabIndex = 6;
@@ -265,18 +276,18 @@
             this.btnShowSpeakers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnShowSpeakers.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnShowSpeakers.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnShowSpeakers.Location = new System.Drawing.Point(1035, 655);
+            this.btnShowSpeakers.Location = new System.Drawing.Point(1024, 624);
             this.btnShowSpeakers.Name = "btnShowSpeakers";
-            this.btnShowSpeakers.Size = new System.Drawing.Size(81, 49);
+            this.btnShowSpeakers.Size = new System.Drawing.Size(81, 48);
             this.btnShowSpeakers.TabIndex = 9;
             this.btnShowSpeakers.Text = "Manage Speakers";
             this.btnShowSpeakers.UseVisualStyleBackColor = false;
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(250, 711);
+            this.progressBar1.Location = new System.Drawing.Point(250, 703);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(879, 10);
+            this.progressBar1.Size = new System.Drawing.Size(879, 5);
             this.progressBar1.TabIndex = 8;
             this.progressBar1.Visible = false;
             // 
@@ -358,9 +369,9 @@
             this.btnMeetingAnalysis.ForeColor = System.Drawing.Color.White;
             this.btnMeetingAnalysis.Image = ((System.Drawing.Image)(resources.GetObject("btnMeetingAnalysis.Image")));
             this.btnMeetingAnalysis.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMeetingAnalysis.Location = new System.Drawing.Point(0, 555);
+            this.btnMeetingAnalysis.Location = new System.Drawing.Point(0, 545);
             this.btnMeetingAnalysis.Name = "btnMeetingAnalysis";
-            this.btnMeetingAnalysis.Size = new System.Drawing.Size(250, 94);
+            this.btnMeetingAnalysis.Size = new System.Drawing.Size(250, 77);
             this.btnMeetingAnalysis.TabIndex = 12;
             this.btnMeetingAnalysis.Text = "Meeting Analysis";
             this.btnMeetingAnalysis.UseVisualStyleBackColor = true;
@@ -368,7 +379,7 @@
             // panel5
             // 
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 545);
+            this.panel5.Location = new System.Drawing.Point(0, 535);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(250, 10);
             this.panel5.TabIndex = 11;
@@ -383,9 +394,9 @@
             this.btnOldRecords.ForeColor = System.Drawing.Color.White;
             this.btnOldRecords.Image = ((System.Drawing.Image)(resources.GetObject("btnOldRecords.Image")));
             this.btnOldRecords.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOldRecords.Location = new System.Drawing.Point(0, 451);
+            this.btnOldRecords.Location = new System.Drawing.Point(0, 458);
             this.btnOldRecords.Name = "btnOldRecords";
-            this.btnOldRecords.Size = new System.Drawing.Size(250, 94);
+            this.btnOldRecords.Size = new System.Drawing.Size(250, 77);
             this.btnOldRecords.TabIndex = 10;
             this.btnOldRecords.Text = "Old Records";
             this.btnOldRecords.UseVisualStyleBackColor = true;
@@ -393,7 +404,7 @@
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 441);
+            this.panel4.Location = new System.Drawing.Point(0, 448);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(250, 10);
             this.panel4.TabIndex = 9;
@@ -408,9 +419,9 @@
             this.btnSpeechToText.ForeColor = System.Drawing.Color.White;
             this.btnSpeechToText.Image = ((System.Drawing.Image)(resources.GetObject("btnSpeechToText.Image")));
             this.btnSpeechToText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSpeechToText.Location = new System.Drawing.Point(0, 347);
+            this.btnSpeechToText.Location = new System.Drawing.Point(0, 371);
             this.btnSpeechToText.Name = "btnSpeechToText";
-            this.btnSpeechToText.Size = new System.Drawing.Size(250, 94);
+            this.btnSpeechToText.Size = new System.Drawing.Size(250, 77);
             this.btnSpeechToText.TabIndex = 8;
             this.btnSpeechToText.Text = "Speech To Text";
             this.btnSpeechToText.UseVisualStyleBackColor = true;
@@ -418,7 +429,7 @@
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 337);
+            this.panel3.Location = new System.Drawing.Point(0, 361);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(250, 10);
             this.panel3.TabIndex = 7;
@@ -449,9 +460,9 @@
             this.btnTranslateFile.ForeColor = System.Drawing.Color.White;
             this.btnTranslateFile.Image = ((System.Drawing.Image)(resources.GetObject("btnTranslateFile.Image")));
             this.btnTranslateFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTranslateFile.Location = new System.Drawing.Point(0, 243);
+            this.btnTranslateFile.Location = new System.Drawing.Point(0, 284);
             this.btnTranslateFile.Name = "btnTranslateFile";
-            this.btnTranslateFile.Size = new System.Drawing.Size(250, 94);
+            this.btnTranslateFile.Size = new System.Drawing.Size(250, 77);
             this.btnTranslateFile.TabIndex = 5;
             this.btnTranslateFile.Text = "Translate File";
             this.btnTranslateFile.UseVisualStyleBackColor = true;
@@ -459,7 +470,7 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 233);
+            this.panel2.Location = new System.Drawing.Point(0, 274);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(250, 10);
             this.panel2.TabIndex = 4;
@@ -474,9 +485,9 @@
             this.btnMeeting.ForeColor = System.Drawing.Color.White;
             this.btnMeeting.Image = ((System.Drawing.Image)(resources.GetObject("btnMeeting.Image")));
             this.btnMeeting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMeeting.Location = new System.Drawing.Point(0, 139);
+            this.btnMeeting.Location = new System.Drawing.Point(0, 197);
             this.btnMeeting.Name = "btnMeeting";
-            this.btnMeeting.Size = new System.Drawing.Size(250, 94);
+            this.btnMeeting.Size = new System.Drawing.Size(250, 77);
             this.btnMeeting.TabIndex = 2;
             this.btnMeeting.Text = "Meeting";
             this.btnMeeting.UseVisualStyleBackColor = true;
@@ -484,7 +495,7 @@
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 129);
+            this.panel1.Location = new System.Drawing.Point(0, 187);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 10);
             this.panel1.TabIndex = 3;
@@ -495,8 +506,8 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 129);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.Size = new System.Drawing.Size(250, 187);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -622,8 +633,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtMeetingTitle;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox rTxtMeetingSubject;
         private System.Windows.Forms.Panel pnlAdd;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox txtMeetingSubject;
     }
 }
